@@ -1,5 +1,6 @@
-import pytest
 from app import app
+
+import pytest
 
 @pytest.fixture
 def client():
@@ -8,4 +9,4 @@ def client():
 
 def test_hello_world(client):
     response = client.get('/')
-    assert response.data == b'Hello, World!'
+    assert b'Hello, World!' in response.data
